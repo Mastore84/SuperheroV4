@@ -27,16 +27,15 @@ public class RepositoryDB implements IRepositoryInterface {
 
         try {
             Connection con = DriverManager.getConnection(db_url, uid, pwd);
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM SUPERHEROES");
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM SUPERHERO");
             ResultSet results = pstmt.executeQuery();
-            if (results.next()){
-                System.out.println(results);
+            if (results.next()) {
+               int yearCreated = results.getInt("YEAR_CREATED");
             }
+            return superheroes;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-        return null;
     }
 
     @Override
