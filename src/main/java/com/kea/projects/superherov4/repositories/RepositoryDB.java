@@ -30,7 +30,7 @@ public class RepositoryDB implements IRepositoryInterface {
             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM SUPERHEROES");
             ResultSet results = pstmt.executeQuery();
             if (results.next()){
-                System.out.println("ble");
+                System.out.println(results);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

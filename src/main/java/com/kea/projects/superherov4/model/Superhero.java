@@ -10,11 +10,7 @@ public class Superhero {
     private String cityName;
 
     //constructor
-    public Superhero(String heroName,
-                     String realName,
-                     int creationYear,
-                     String superpowerName,
-                     String cityName) {
+    public Superhero(String heroName, String realName, int creationYear, String superpowerName, String cityName) {
         this.heroName = heroName;
         this.realName = realName;
         this.creationYear = creationYear;
