@@ -31,7 +31,9 @@ public class RepositoryDB implements IRepositoryInterface {
             ResultSet results = pstmt.executeQuery();
             if (results.next()) {
                int yearCreated = results.getInt("YEAR_CREATED");
+               System.out.println(yearCreated);
             }
+            con.close();
             return superheroes;
         } catch (SQLException e) {
             throw new RuntimeException(e);

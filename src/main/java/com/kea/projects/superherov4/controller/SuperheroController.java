@@ -19,7 +19,7 @@ import org.springframework.stereotype.Controller;
 public class SuperheroController {
 
     RepositoryDB superheroDatabase;
-    Class<? extends Service> superheroList;
+    List<Superhero> superheroList;
 
     public SuperheroController(ApplicationContext context, @Value("${superhero.repository.impl}") String impl) {
         superheroDatabase = (RepositoryDB) context.getContext(impl);
@@ -34,9 +34,8 @@ public class SuperheroController {
         this.superheroService = superheroService;
     }
 
-    @GetMapping(path="/")
-    public ResponseEntity<List<Superhero>> getSuperheroDatabase() {
-         superheroList = superheroService.getClass();
+    @GetMapping(path="/year_created")
+    ResponseEntity<List<Superhero>> getSuperheroDatabase() {
         return new ResponseEntity<List<Superhero>>(superheroList, HttpStatus.OK);
     }
     @GetMapping(path="/{navn}")
